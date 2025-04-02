@@ -1,5 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import NavigationMenu from "@/app/components/NavigationMenu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,17 +11,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "McDondalds Argentina",
-  description: "Descubre y disfruta de nuestras hamburguesas, patatas, mcflurry, en nuestra web. Calidad ✓. Pedir o recoger ✓ 24h ✓. Descuento ✓"
-};
+export default async function RootLayout({ children, params }) {
+  const {categoria} = await params;
 
-export default function RootLayout({ children }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <NavigationMenu categoria={categoria} />
         {children}
       </body>
     </html>
