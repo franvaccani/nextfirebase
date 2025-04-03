@@ -1,36 +1,9 @@
-"use client"
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import NavBar from "@/app/components/NavBar";
-import Footer from "@/app/components/Footer";
-
-export default function Nosotros() {
-    const ubicacion = usePathname();
-    console.log(ubicacion);
-    
-
-    const router = useRouter();
-
-    const reemplazar = (url) => {
-        router.replace(url);
-    }
-
-    const refrescar = () => {
-        router.refresh();
-    }
-
-    const irAtras = () => {
-        router.back();
-    }
-
-    const irAdelante = () => {
-        router.forward();
-    }
-
-    return (
-        <>
-        <NavBar />
-        <Footer />
-      </>
-    )
+const Nosotros = () => {
+return (
+    <>
+      <h1 className="text-3xl font-bold text-center mt-10">Nosotros</h1>
+    </>
+);
 }
+
+export default Nosotros;

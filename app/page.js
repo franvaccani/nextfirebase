@@ -1,11 +1,10 @@
-import Footer from "./components/Footer";
-import NavBar from "./components/NavBar";
+import ProductList from "./components/ProductList";
+import ContactForm from "./components/ConcactForm";
 
 export default function Home() {
   return (
     <>
-      <NavBar />
-      <Footer />
+      <h1 className="text-3xl font-bold text-center mt-10">Inicio</h1>
     </>
   );
 }

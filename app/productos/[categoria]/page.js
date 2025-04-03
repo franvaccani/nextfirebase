@@ -1,5 +1,5 @@
-import mockData from "@/app/data/productos.json"
-import ProductCard from "@/app/components/ProductCard";
+import ProductList from "@/app/components/ProductList";
+import { Suspense } from "react";
 
 export async function generateMetadata ({params, searchParams}, parent) {
     const {categoria} = await params;
@@ -9,19 +9,23 @@ export async function generateMetadata ({params, searchParams}, parent) {
     }
 }
 
+export async function generateStaticParams() {
+    return [
+        {categoria:"hamburguesas"},
+        {categoria:"pollo"},
+        {categoria:"papas"},
+        {categoria:"bebidas"}
+    ]
+}
+
 export default async function Productos({params}) {
     const {categoria} = await params;
-    //console.log(categoria);
-    const items = categoria ? mockData.filter(item => item.categoria == categoria) : mockData;
-    //console.log(items);
 
     return (
-        <section className="flex justify-center items-center h-screen">
-            {
-                items.map(item => (
-                    <ProductCard key={item.id} item={item} />
-                ))
-            }
+        <section className="container m-auto flex justify-center my-20">
+            <Suspense fallback={<h1 className="text-4xl font-extrabold dark:text-white">Cargando...</h1>}>
+                <ProductList categoria={categoria} />
+            </Suspense>
         </section>
     )
 }

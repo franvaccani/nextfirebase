@@ -1,11 +1,10 @@
-import NavBar from "@/app/components/NavBar";
-import Boton from "@/app/components/Boton";
-import Footer from "@/app/components/Footer";
+import ContactForm from "@/app/components/ConcactForm";
+
 const Contacto = () => {
 return (
     <>
-      <NavBar />
-      <Footer />
+      <h1 className="text-3xl font-bold text-center mt-10">Contacto</h1>
+      <ContactForm />
     </>
 );
 }
